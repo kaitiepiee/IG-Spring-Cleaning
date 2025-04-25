@@ -1,33 +1,50 @@
+import streamlit as st
 import json
+import io
 
-# Load followers
-with open('followers_1.json', 'r', encoding='utf-8') as f:
-    followers_data = json.load(f)
-    followers = set(user['string_list_data'][0]['value'] for user in followers_data)
+st.title("💅 Instagram Follower Analyzer")
 
-# Load followees
-with open('following.json', 'r', encoding='utf-8') as f:
-    following_data = json.load(f)
-    followees_data = following_data["relationships_following"]
-    followees = set(user['string_list_data'][0]['value'] for user in followees_data)
+# Upload files
+followers_file = st.file_uploader("Upload followers_1.json", type="json")
+following_file = st.file_uploader("Upload following.json", type="json")
 
-# Categorize
-mutuals = sorted(followers & followees)
-ghosts = sorted(followees - followers)    # you follow, they don’t
-fans = sorted(followers - followees)      # they follow you, you don’t
+if followers_file and following_file:
+    try:
+        # Parse uploaded JSON files
+        followers_data = json.load(followers_file)
+        following_data = json.load(following_file)
 
-# Write to file
-with open('insta_relationships.txt', 'w', encoding='utf-8') as out:
-    out.write("🤝 Mutuals (you follow each other):\n")
-    for user in mutuals:
-        out.write(f"{user}\n")
+        followers = set(user['string_list_data'][0]['value'] for user in followers_data)
+        followees_data = following_data["relationships_following"]
+        followees = set(user['string_list_data'][0]['value'] for user in followees_data)
 
-    out.write("\n💔 Ghosts (you follow them, they don't follow back):\n")
-    for user in ghosts:
-        out.write(f"{user}\n")
+        # Categorize
+        mutuals = sorted(followers & followees)
+        ghosts = sorted(followees - followers)
+        fans = sorted(followers - followees)
 
-    out.write("\n👀 Fans (they follow you, but you don’t follow back):\n")
-    for user in fans:
-        out.write(f"{user}\n")
+        # Display
+        st.subheader("🤝 Mutuals")
+        st.write(mutuals or "None")
 
-print("✅ Saved to insta_relationships.txt!")
+        st.subheader("💔 Ghosts (you follow, they don’t)")
+        st.write(ghosts or "None")
+
+        st.subheader("👀 Fans (they follow, you don’t)")
+        st.write(fans or "None")
+
+        # Prepare downloadable text
+        output = io.StringIO()
+        output.write("🤝 Mutuals:\n" + "\n".join(mutuals) + "\n\n")
+        output.write("💔 Ghosts:\n" + "\n".join(ghosts) + "\n\n")
+        output.write("👀 Fans:\n" + "\n".join(fans) + "\n")
+
+        st.download_button(
+            "📄 Download Results as .txt",
+            data=output.getvalue(),
+            file_name="insta_relationships.txt",
+            mime="text/plain"
+        )
+
+    except Exception as e:
+        st.error(f"Something went wrong: {e}")
