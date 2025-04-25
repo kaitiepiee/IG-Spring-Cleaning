@@ -5,7 +5,7 @@ import io
 st.set_page_config(page_title="Instagram Spring Cleaning 🧹 ", page_icon="🧹")
 st.markdown(
     """
-    <h1 style='color:#C13584;'>Instagram Spring Cleaning 🧹</h1>
+    <h1 style='color:#C13584;'>Instagram Spring Cleaning🧹</h1>
     <p>Clean up Szn! See who follows you back and and who doesn’t hehehe </p>
     <p> This app processes your Instagram data *locally* in your browser. No data is collected or stored.</p>
     <p>📥 <a href='https://www.instagram.com/download/request/' target='_blank'>Click here to download your Instagram data</a> (please choose JSON format).</p>
