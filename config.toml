@@ -5,6 +5,13 @@ headless = true
 
 [theme]
 base = "light"
+primaryColor = "#C13584"           # Instagram pink
+backgroundColor = "#ffffff"        # Clean white background
+secondaryBackgroundColor = "#fafafa" # Soft light gray for cards/boxes
+textColor = "#262626"              # Almost black for text
+font = "sans serif"                # Cleaner look
+
+
 
 [browser]
 gatherUsageStats = false
