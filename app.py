@@ -7,7 +7,7 @@ st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='color:#C13584;'>✨ Instagram Spring Cleaning ✨</h1>
-        <p style='font-size:18px;'>Clean up Szn! See who follows you back and who doesn’t hehe 🧹</p>
+        <p style='font-size:18px;'>See your mutuals, who follows you back, and who doesn’t hehe 🧹</p>
         <p style='font-size:16px;'>This app processes your Instagram data <em>locally</em> in your browser for free!<br>
         No data is collected or stored. No sign-in needed.</p>
     </div>
@@ -106,15 +106,19 @@ st.markdown("---")
 st.markdown(
     """
     <div style='text-align: center; padding-top: 20px; font-size: 15px; color: #888;'>
-        Made by the final girl 👩🏻‍💻<br><br>
+        Made by the final girl 🧍🏻‍♀️<br><br>
         <a href='https://github.com/kaitiepiee' target='_blank'>
             <img src='https://cdn-icons-png.flaticon.com/512/25/25231.png' width='25' style='margin: 0 10px;' />
         </a>
         <a href='https://instagram.com/kaitiepiee' target='_blank'>
             <img src='https://cdn-icons-png.flaticon.com/512/2111/2111463.png' width='25' style='margin: 0 10px;' />
         </a>
+        <a href='https://www.linkedin.com/in/kait-tighe/' target='_blank'>
+            <img src='https://cdn-icons-png.flaticon.com/512/174/174857.png' width='25' style='margin: 0 10px;' />
+        </a>
     </div>
     """,
     unsafe_allow_html=True
 )
+
 
