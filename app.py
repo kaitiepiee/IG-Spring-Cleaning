@@ -3,24 +3,41 @@ import json
 import io
 
 st.set_page_config(page_title="Instagram Spring Cleaning 🧹", page_icon="🧹")
-
-# Fancy Header and Description
 st.markdown(
     """
     <div style='text-align: center;'>
-        <h1 style='color:#C13584;'>Instagram Spring Cleaning 🧹</h1>
-        <p style='font-size:18px;'>Clean up Szn! See who follows you back and who doesn’t hehe ✨</p>
+        <h1 style='color:#C13584;'>✨ Instagram Spring Cleaning ✨</h1>
+        <p style='font-size:18px;'>Clean up Szn! See who follows you back and who doesn’t hehe 🧹</p>
         <p style='font-size:16px;'>This app processes your Instagram data <em>locally</em> in your browser for free!<br>
         No data is collected or stored. No sign-in needed.</p>
-        <p style='font-size:16px;'>📥 
-        <a href='https://help.instagram.com/181231772500920?helpref=about_content' target='_blank'>
-        Learn how to download your data here</a> (select <strong>all-time data</strong> and <strong>JSON format</strong>).</p>
     </div>
     """,
     unsafe_allow_html=True
 )
 
-# File uploaders
+st.markdown("---")
+st.markdown(
+    """
+    <div style='padding: 20px; background-color: #fafafa; border-radius: 10px; border: 1px solid #e6e6e6;'>
+        <h2 style='color: #C13584;'>🚀 How to Use</h2>
+        <ol style='font-size: 16px; color: #262626;'>
+            <li>Go to <a href='https://help.instagram.com/181231772500920?helpref=about_content' target='_blank'>Instagram Data Download</a> and request your data.<br><small>(Select <b>all-time data</b> and <b>JSON format</b>.)</small></li><br>
+            <li>When you receive your data via email, download and extract the <code>.zip</code> file.</li><br>
+            <li>Locate the following files inside:
+                <ul>
+                    <li><code>followers_1.json</code></li>
+                    <li><code>following.json</code></li>
+                </ul>
+            </li><br>
+            <li>Open the app (via the Streamlit link).</li><br>
+            <li>Upload both JSON files.</li><br>
+            <li>Scroll through your categorized lists or download your results as a <code>.txt</code> file!</li>
+        </ol>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 followers_file = st.file_uploader("Upload your `followers_1.json` file", type="json")
 following_file = st.file_uploader("Upload your `following.json` file", type="json")
 
@@ -38,7 +55,6 @@ if followers_file and following_file:
         ghosts = sorted(followees - followers)
         fans = sorted(followers - followees)
 
-        # Fancy Display Function
         def display_category(title, items, emoji):
             st.markdown(f"## {emoji} {title}")
             st.markdown(
@@ -60,7 +76,6 @@ if followers_file and following_file:
                 unsafe_allow_html=True
             )
 
-        # Display sections
         display_category("Mutuals", mutuals, "🤝")
         display_category("You follow, they don’t", ghosts, "💔")
         display_category("They follow, you don’t", fans, "👀")
