@@ -2,7 +2,10 @@ import streamlit as st
 import json
 import io
 
+# Page config
 st.set_page_config(page_title="Instagram Spring Cleaning 🧹", page_icon="🧹")
+
+# Header and Description
 st.markdown(
     """
     <div style='text-align: center;'>
@@ -16,28 +19,31 @@ st.markdown(
 )
 
 st.markdown("---")
-st.markdown(
-    """
-    <div style='padding: 20px; background-color: #fafafa; border-radius: 10px; border: 1px solid #e6e6e6;'>
-        <h2 style='color: #C13584;'>🚀 How to Use</h2>
-        <ol style='font-size: 16px; color: #262626;'>
-            <li>Go to <a href='https://help.instagram.com/181231772500920?helpref=about_content' target='_blank'>Instagram Data Download</a> and request your data.<br><small>(Select <b>all-time data</b> and <b>JSON format</b>.)</small></li><br>
-            <li>When you receive your data via email, download and extract the <code>.zip</code> file.</li><br>
-            <li>Locate the following files inside:
-                <ul>
-                    <li><code>followers_1.json</code></li>
-                    <li><code>following.json</code></li>
-                </ul>
-            </li><br>
-            <li>Open the app (via the Streamlit link).</li><br>
-            <li>Upload both JSON files.</li><br>
-            <li>Scroll through your categorized lists or download your results as a <code>.txt</code> file!</li>
-        </ol>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 
+# How to Use inside an expander
+with st.expander("🚀 How to Use"):
+    st.markdown(
+        """
+        <div style='padding: 10px; background-color: #fafafa; border-radius: 10px; border: 1px solid #e6e6e6;'>
+            <ol style='font-size: 16px; color: #262626;'>
+                <li>Go to <a href='https://accountscenter.instagram.com/info_and_permissions/' target='_blank'>Instagram Data Download</a> and request your data.<br><small>(Select <b>all-time data</b> and <b>JSON format</b>.)</small></li><br>
+                <li>When you receive your data via email, download and extract the <code>.zip</code> file.</li><br>
+                <li>Locate the following files inside:
+                    <ul>
+                        <li><code>followers_1.json</code></li>
+                        <li><code>following.json</code></li>
+                    </ul>
+                </li><br>
+                <li>Open the app (via the Streamlit link).</li><br>
+                <li>Upload both JSON files.</li><br>
+                <li>Scroll through your categorized lists or download your results as a <code>.txt</code> file!</li>
+            </ol>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# File uploaders
 followers_file = st.file_uploader("Upload your `followers_1.json` file", type="json")
 following_file = st.file_uploader("Upload your `following.json` file", type="json")
 
@@ -55,6 +61,7 @@ if followers_file and following_file:
         ghosts = sorted(followees - followers)
         fans = sorted(followers - followees)
 
+        # Fancy Display Function
         def display_category(title, items, emoji):
             st.markdown(f"## {emoji} {title}")
             st.markdown(
@@ -76,6 +83,7 @@ if followers_file and following_file:
                 unsafe_allow_html=True
             )
 
+        # Display sections
         display_category("Mutuals", mutuals, "🤝")
         display_category("You follow, they don’t", ghosts, "💔")
         display_category("They follow, you don’t", fans, "👀")
