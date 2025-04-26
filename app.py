@@ -30,7 +30,7 @@ with st.expander("🚀 How to Use"):
                         <li><code>following.json</code></li>
                     </ul>
                 </li><br>
-                <li>Open the app (via the Streamlit link).</li><br>
+                <li>Come back to this web page.</li><br>
                 <li>Upload both JSON files.</li><br>
                 <li>Scroll through your categorized lists or download your results as a <code>.txt</code> file!</li>
             </ol>
