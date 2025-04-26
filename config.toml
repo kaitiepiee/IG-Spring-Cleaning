@@ -1,0 +1,12 @@
+[server]
+enableXsrfProtection = true
+enableCORS = true
+headless = true
+
+[theme]
+base = "light"
+
+[browser]
+gatherUsageStats = false
+serverAddress = "0.0.0.0"
+serverPort = 8501

@@ -6,12 +6,13 @@ st.set_page_config(page_title="Instagram Spring Cleaning 🧹 ", page_icon="🧹
 st.markdown(
     """
     <h1 style='color:#C13584;'>Instagram Spring Cleaning🧹</h1>
-    <p>Clean up Szn! See who follows you back and and who doesn’t hehehe </p>
-    <p> This app processes your Instagram data *locally* in your browser. No data is collected or stored.</p>
-    <p>📥 <a href='https://www.instagram.com/download/request/' target='_blank'>Click here to download your Instagram data</a> (please choose JSON format).</p>
+    <p>Clean up Szn! See who follows you back and who doesn’t hehehe </p>
+    <p>This app processes your Instagram data <em>locally</em> in your browser. No data is collected or stored.</p>
+    <p>📥 <a href='https://help.instagram.com/181231772500920?helpref=about_content' target='_blank'>Click here to learn how to download your Instagram data</a> (please choose JSON format).</p>
     """,
     unsafe_allow_html=True
 )
+
 
 followers_file = st.file_uploader("Upload your `followers_1.json`", type="json")
 following_file = st.file_uploader("Upload your `following.json`", type="json")
