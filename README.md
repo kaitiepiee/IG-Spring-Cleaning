@@ -12,7 +12,7 @@ This app processes your Instagram data locally in your browser for free. No data
 3. Locate the following files inside:
    - `followers_1.json`
    - `following.json`
-4. Open the app (via the provided Streamlit link).
+4. Open this [IG Spring Cleaning Web App](https://ig-spring-cleaning.onrender.com/)
 5. Upload both JSON files.
 6. Browse your categorized lists or download the results as a `.txt` file!
 
