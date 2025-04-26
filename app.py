@@ -106,7 +106,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style='text-align: center; padding-top: 20px; font-size: 15px; color: #888;'>
-        Made by the final girl 🧍🏻‍♀️<br><br>
+        made by the final girl 👩🏻‍💻<br><br>
         <a href='https://github.com/kaitiepiee' target='_blank'>
             <img src='https://cdn-icons-png.flaticon.com/512/25/25231.png' width='25' style='margin: 0 10px;' />
         </a>
