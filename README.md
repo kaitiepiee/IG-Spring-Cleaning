@@ -1,22 +1,30 @@
 # Instagram Spring Cleaning 🧹
+See your mutuals, who follows you back, and who doesn’t!
 
-This is a web app to help you find out:
+This app processes your Instagram data locally in your browser for free. No data is collected or stored. No sign-in needed.
 
-- 🤝 people you follow who follow you back  
-- 💔 people you follow who don't follow back  
-- 👀 people who follow you, but you don’t follow back  
-
-### 🔒 No data is collected
-All data processing happens locally in your browser. Nothing is uploaded or stored anywhere.
+---
 
 ## 🚀 How to Use
-
-1. Go to [Instagram Data Download](https://www.instagram.com/download/request/) and request your data (choose **JSON** format).
-2. Once you receive your data via email, extract the `.zip` file and locate:
+1. Go to [Instagram Data Download](https://help.instagram.com/181231772500920?helpref=about_content) and request your data.
+   - Make sure to select **all-time data** and **JSON format**.
+2. Once you receive your data via email, download and extract the `.zip` file.
+3. Locate the following files inside:
    - `followers_1.json`
    - `following.json`
-3. Open the app  (via a public Streamlit link).
-4. Upload both files.
-5. Scroll through your categorized lists or download the results as a `.txt` file.
+4. Open the app (via the provided Streamlit link).
+5. Upload both JSON files.
+6. Browse your categorized lists or download the results as a `.txt` file!
+
+---
+## 🛠 Tech Stack
+- **Frontend / App Framework:** [Streamlit](https://streamlit.io/)
+- **Language:** Python
+- **Deployment:** [Render.com](https://render.com/) (for hosting)
+- **Styling:** Custom HTML/CSS embedded in Streamlit
+- **Theme:** Light mode with Instagram-inspired colors 🎨
+
+![IG Spring Cleaning Screenshot](https://github.com/user-attachments/assets/237dc3d0-51e5-4335-9690-a4ad7bee92c9)
+
 
 
